@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0.3 (Python 3.9.5 on win32)" generated="20210628 08:53:15.214" rpa="false" schemaversion="2">
+<suite id="s1" name="Login" source="C:\Users\nmbinh\PycharmProjects\AutoAPI\API\Login">
+<test id="s1-t1" name="1. Init">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210628 08:53:18.234" level="INFO">Opening browser 'chrome' to base url 'https://staging-crm.sabye-songkran.com/'.</msg>
+<status status="PASS" starttime="20210628 08:53:18.233" endtime="20210628 08:53:25.406"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>name:identifier</arg>
+<arg>timeout=None</arg>
+<arg>error=None</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210628 08:53:25.407" endtime="20210628 08:53:26.347"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name:identifier</arg>
+<arg>dung10@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210628 08:53:26.348" level="INFO">Typing text 'dung10@gmail.com' into text field 'name:identifier'.</msg>
+<status status="PASS" starttime="20210628 08:53:26.347" endtime="20210628 08:53:26.513"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name:password</arg>
+<arg>Dungnguyen@</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210628 08:53:26.514" level="INFO">Typing text 'Dungnguyen@' into text field 'name:password'.</msg>
+<status status="PASS" starttime="20210628 08:53:26.513" endtime="20210628 08:53:26.640"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Xpath://*[@id="root"]/div/div/form/div[3]/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20210628 08:53:26.642" level="INFO">Clicking button 'Xpath://*[@id="root"]/div/div/form/div[3]/button'.</msg>
+<status status="PASS" starttime="20210628 08:53:26.641" endtime="20210628 08:53:27.660"/>
+</kw>
+<kw name="Get Cookies" library="SeleniumLibrary">
+<var>${cookie}</var>
+<doc>Returns all cookies of the current page.</doc>
+<msg timestamp="20210628 08:53:27.676" level="INFO">${cookie} = ory_kratos_session=MTYyNDg0NTIwN3xEdi1CQkFFQ180SUFBUkFCRUFBQVJfLUNBQUVHYzNSeWFXNW5EQThBRFhObGMzTnBiMjVmZEc5clpXNEdjM1J5YVc1bkRDSUFJSEF3ZWxOb2ExcG1Oa3BMYTBSTmFqSkhhblptV2pOQ1ZsQklWVUZRVjBKSHzYoB2vzcT8v...</msg>
+<status status="PASS" starttime="20210628 08:53:27.661" endtime="20210628 08:53:27.676"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>content-type=application/json</arg>
+<arg>cookie=${cookie}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20210628 08:53:27.678" level="INFO">${headers} = {'content-type': 'application/json', 'cookie': 'ory_kratos_session=MTYyNDg0NTIwN3xEdi1CQkFFQ180SUFBUkFCRUFBQVJfLUNBQUVHYzNSeWFXNW5EQThBRFhObGMzTnBiMjVmZEc5clpXNEdjM1J5YVc1bkRDSUFJSEF3ZWxOb2ExcG1Oa3BMY...</msg>
+<status status="PASS" starttime="20210628 08:53:27.677" endtime="20210628 08:53:27.678"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${random}</var>
+<arg>random.randint(0, 999)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20210628 08:53:27.679" level="INFO">${random} = 599</msg>
+<status status="PASS" starttime="20210628 08:53:27.678" endtime="20210628 08:53:27.679"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${email}</var>
+<arg>dungx_${random}@gmail.com</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20210628 08:53:27.679" level="INFO">${email} = dungx_599@gmail.com</msg>
+<status status="PASS" starttime="20210628 08:53:27.679" endtime="20210628 08:53:27.679"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${headers}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20210628 08:53:27.680" level="INFO">${headers} = {'content-type': 'application/json', 'cookie': 'ory_kratos_session=MTYyNDg0NTIwN3xEdi1CQkFFQ180SUFBUkFCRUFBQVJfLUNBQUVHYzNSeWFXNW5EQThBRFhObGMzTnBiMjVmZEc5clpXNEdjM1J5YVc1bkRDSUFJSEF3ZWxOb2ExcG1Oa3BMY...</msg>
+<status status="PASS" starttime="20210628 08:53:27.680" endtime="20210628 08:53:27.680"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${email}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20210628 08:53:27.682" level="INFO">${email} = dungx_599@gmail.com</msg>
+<status status="PASS" starttime="20210628 08:53:27.681" endtime="20210628 08:53:27.682"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>User</arg>
+<arg>${url}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20210628 08:53:27.683" level="INFO">Creating Session using : alias=User, url=https://staging-crm.sabye-songkran.com/, headers={'content-type': 'application/json', 'cookie': 'ory_kratos_session=MTYyNDg0NTIwN3xEdi1CQkFFQ180SUFBUkFCRUFBQVJfLUNBQUVHYzNSeWFXNW5EQThBRFhObGMzTnBiMjVmZEc5clpXNEdjM1J5YVc1bkRDSUFJSEF3ZWxOb2ExcG1Oa3BMYTBSTmFqSkhhblptV2pOQ1ZsQklWVUZRVjBKSHzYoB2vzcT8v50F4FXV1PXDiOvJJZi_9TbgbeEg3fWuHQ=='},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20210628 08:53:27.683" endtime="20210628 08:53:27.684"/>
+</kw>
+<status status="PASS" starttime="20210628 08:53:18.232" endtime="20210628 08:53:27.684"/>
+</test>
+<test id="s1-t2" name="2. Get User">
+<kw name="Get On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>User</arg>
+<arg>${getUri}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20210628 08:53:28.157" level="INFO">GET Request : url=https://staging-crm.sabye-songkran.com/api/view/v1alpha1/views/users/users 
+ path_url=/api/view/v1alpha1/views/users/users 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'content-type': 'application/json', 'cookie': 'ory_kratos_session=MTYyNDg0NTIwN3xEdi1CQkFFQ180SUFBUkFCRUFBQVJfLUNBQUVHYzNSeWFXNW5EQThBRFhObGMzTnBiMjVmZEc5clpXNEdjM1J5YVc1bkRDSUFJSEF3ZWxOb2ExcG1Oa3BMYTBSTmFqSkhhblptV2pOQ1ZsQklWVUZRVjBKSHzYoB2vzcT8v50F4FXV1PXDiOvJJZi_9TbgbeEg3fWuHQ=='} 
+ body=None 
+ </msg>
+<msg timestamp="20210628 08:53:28.157" level="INFO">GET Response : url=https://staging-crm.sabye-songkran.com/api/view/v1alpha1/views/users/users 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 28 Jun 2021 01:53:28 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Rabbit-Rt': '0.173', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'Content-Security-Policy': "block-all-mixed-content; default-src 'none'; base-uri 'none'; img-src 'self' blob: https://storage.googleapis.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://storage.googleapis.com; manifest-src 'self'; media-src 'self' https://storage.googleapis.com; frame-ancestors 'none'", 'Referrer-Policy': 'same-origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-XSS-Protection': '1; mode=block'} 
+ body={
+  "usersWithTeam": [
+    {
+      "name": "users/25e32b3a-742b-49d9-bdbd-1e00bec0d654",
+      "createTime": "2021-06-27T14:26:49.293846Z",
+      "updateTime": "2021-06-27T14:26:49.293846Z",
+      "deleteTime": null,
+      "createBy": "users/6f35b998-c1e0-4dea-bd0b-ee3a008242f9",
+      "humanId": "mikke@mikke",
+      "role": "roles/inbound",
+      "firstName": "Mikke",
+      "lastName": "Mikke",
+      "fullName": "Mikke Mikke",
+      "annotations": {},
+      "loginTime": null,
+      "createByFirstName": "Attila",
+      "createByLastName": "Molnar",
+      "createByFullName": "Attila Molnar",
+      "teamProduct": "",
+      "teamDisplayName": ""
+    },
+    {
+      "name": "users/024a3f2b-7ca4-4ed4-931e-b6c65b612f93",
+      "createTime": "2021-06-25T09:00:46.486392Z",
+      "updateTime": "2021-06-25T09:00:46.486392Z",
+      "deleteTime": null,
+      "createBy": "users/33a5f5cb-68a7-4c74-9a97-bb918a95cad1",
+      "humanId": "Pipoz@volvo.co.uk3",
+      "role": "roles/supervisor",
+      "firstName": "Zenda3",
+      "lastName": "Pipo3",
+      "fullName": "Zenda3 Pipo3",
+      "annotations": {},
+      "loginTime": null,
+      "createByFirstName": "TestTemplate",
+      "createByLastName": "Three",
+      "createByFullName": "TestTemplate Three",
+      "teamProduct": "",
+      "teamDisplayName": ""
+    },
+    {
+      "name": "users/232f5293-43a0-468a-b818-fc2161845ba8",
+      "createTime": "2021-06-25T08:49:26.983747Z",
+      "updateTime": "2021-06-25T08:49:26.983747Z",
+      "deleteTime": null,
+      "createBy": "users/6f35b998-c1e0-4dea-bd0b-ee3a008242f9",
+      "humanId": "Pipoz@volvo.co.uk22",
+      "role": "roles/manager",
+      "firstName": "Zenda2",
+      "lastName": "Pipo2",
+      "fullName": "Zenda2 Pipo2",
+      "annotations": {},
+      "loginTime": null,
+      "createByFirstName": "Attila",
+      "createByLastName": "Molnar",
+      "createByFullName": "Attila Molnar",
+      "teamProduct": "",
+      "teamDisplayName": ""
+    },
+    {
+      "name": "users/b6c357d4-7d23-4947-aaab-8c2fb978046c",
+      "createTime": "2021-06-25T04:07:47.587615Z",
+      "updateTime": "2021-06-25T04:07:47.587615Z",
+      "deleteTime": null,
+      "createBy": "users/33a5f5cb-68a7-4c74-9a97-bb918a95cad1",
+      "humanId": "Pipoz@volvo.co.uk",
+      "role": "roles/sales",
+      "firstName": "Zenda",
+      "lastName": "Pipo",
+      "fullName": "Zenda Pipo",
+      "annotations": {
+        "daily_limit": "999999",
+        "score": "4",
+        "total_limit": "9999999"
+      },
+      "loginTime": null,
+      "createByFirstName": "TestTemplate",
+      "createByLastName": "Three",
+      "createByFullName": "TestTemplate Three",
+      "teamProduct": "products/car-insurance",
+      "teamDisplayName": "Kiwi gold"
+    },
+    {
+      "name": "users/cd3785b5-668d-408c-861f-11cf5dc2eb1a",
+      "createTime": "2021-06-25T03:38:04.274080Z",
+      "updateTime": "2021-06-25T03:38:04.274080Z",
+      "deleteTime": null,
+      "createBy": "users/60644dcf-1aa6-4565-9d04-124e155641c2",
+      "humanId": "binh111@gmail.com",
+      "role": "roles/admin",
+      "firstName": "Binh",
+      "lastName": "Nguyen",
+      "fullName": "Binh Nguyen",
+      "annotations": {},
+      "loginTime": null,
+      "createByFirstName": "dung",
+      "createByLastName": "nguyen1",
+      "createByFullName": "dung nguyen1",
+      "teamProduct": "",
+      "teamDisplayName": ""
+    },
+    {
+      "name": "users/0aff9210-8b03-4108-949c-de72768ddd73",
+      "createTime": "2021-06-25T02:47:02.143137Z",
+      "updateTime": "2021-06-25T02:47:02.143137Z",
+      "deleteTime": null,
+      "createBy": "users/60644dcf-1aa6-4565-9d04-124e155641c2",
+      "humanId": "binh_1624589221490@gmail.com",
+      "role": "roles/admin",
+      "firstName": "binh",
+      "lastName": "Nguyen",
+      "fullName": "binh Nguyen",
+      "annotations": {},
+      "loginTime": null,
+      "createByFirstName": "dung",
+      "createByLastName": "nguyen1",
+      "createByFullName": "dung nguyen1",
+      "teamProduct": "",
+      "teamDisplayName": ""
+    },
+    {
+      "name": "users/9c67f6d6-7e56-49a2-aa57-889190eb584d",
+      "createTime": "2021-06-25T02:42:10.947317Z",
+      "updateTime": "2021-06-25T02:42:10.947317Z",
+      "deleteTime": null,
+      "createBy": "users/60644dcf-1aa6-4565-9d04-124e155641c2",
+      "humanId": "binh_1624588930303@gmail.com",
+      "role": "roles/admin",
+      "firstName": "binh",
+      "lastName": "Nguyen",
+      "fullName": "binh Nguyen",
+      "annotations": {},
+      "loginTime": null,
+      "createByFirstName": "dung",
+      "createByLastName": "nguyen1",
+      "createByFullName": "dung nguyen1",
+      "teamProduct": "",
+      "teamDisplayName": ""
+    },
+    {
+      "name": "users/c34c6b42-0c85-4bec-8583-145dc39701bd",
+      "createTime": "2021-06-25T02:25:59.930238Z",
+      "updateTime": "2021-06-25T02:25:59.930238Z",
+      "deleteTime": null,
+      "createBy": "users/60644dcf-1aa6-4565-9d04-124e155641c2",
+      "humanId": "binh_1624587959846@gmail.com",
+      "role": "roles/admin",
+      "firstName": "binh",
+      "lastName": "Nguyen",
+      "fullName": "binh Nguyen",
+      "annotations": {},
+      "loginTime": null,
+      "createByFirstName": "dung",
+      "createByLastName": "nguyen1",
+      "createByFullName": "dung nguyen1",
+      "teamProduct": "",
+      "teamDisplayName": ""
+    },
+    {
+      "name": "users/be413fed-bb4d-41de-8da8-4504e90c3e94",
+      "createTime": "2021-06-25T02:25:17.459215Z",
+      "updateTime": "2021-06-25T02:25:17.459215Z",
+      "deleteTime": null,
+      "createBy": "users/60644dcf-1aa6-4565-9d04-124e155641c2",
+      "humanId": "binh_1624587917347@gmail.com",
+      "role": "roles/admin",
+      "firstName": "binh",
+      "lastName": "Nguyen",
+      "fullName": "binh Nguyen",
+      "annotations": {},
+      "loginTime": null,
+      "createByFirstName": "dung",
+      "createByLastName": "nguyen1",
+      "createByFullName": "dung nguyen1",
+      "teamProduct": "",
+      "teamDisplayName": ""
+    },
+    {
+      "name": "users/ad1012a5-9030-444a-80e1-9887a7ead472",
+      "createTime": "2021-06-24T09:54:41.268902Z",
+      "updateTime": "2021-06-24T09:54:41.268902Z",
+      "deleteTime": null,
+      "createBy": "users/6f35b998-c1e0-4dea-bd0b-ee3a008242f9",
+      "humanId": "binh1345@gmail.com",
+      "role": "roles/manager",
+      "firstName": "Le3",
+      "lastName": "2345",
+      "fullName": "Le3 2345",
+      "annotations": {},
+      "loginTime": null,
+      "createByFirstName": "Attila",
+      "createByLastName": "Molnar",
+      "createByFullName": "Attila Molnar",
+      "teamProduct": "",
+      "teamDisplayName": ""
+    }
+  ],
+  "nextPageToken": "eyJwIjp7ImMiOiJ2aWV3L3YxYWxwaGExL3ZpZXdzL3VzZXJzIiwiayI6eyJTaG93RGVsZXRlZCI6ZmFsc2UsIlBhZ2VTaXplIjoxMCwiRmlsdGVyIjoiIiwiT3JkZXJCeSI6IiJ9fSwicyI6eyJkIjoiMjAyMS0wNi0yNFQwOTo1NDo0MS4yNjg5MDJaIiwiaSI6ImFkMTAxMmE1LTkwMzAtNDQ0YS04MGUxLTk4ODdhN2VhZDQ3MiJ9fQ=="
+} 
+ </msg>
+<msg timestamp="20210628 08:53:28.157" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210628 08:53:27.687" endtime="20210628 08:53:28.157"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>200</arg>
+<arg>${response.status_code}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20210628 08:53:28.160" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;class 'int'&gt;</msg>
+<status status="PASS" starttime="20210628 08:53:28.158" endtime="20210628 08:53:28.160"/>
+</kw>
+<status status="PASS" starttime="20210628 08:53:27.686" endtime="20210628 08:53:28.160"/>
+</test>
+<test id="s1-t3" name="3. Create User">
+<kw name="Post On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>User</arg>
+<arg>${postUri}</arg>
+<arg>data={"humanId":"${email}","firstName":"dung","lastName":"Nguyen","role":"roles/admin","annotations":{}}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20210628 08:53:28.309" level="INFO">POST Request : url=https://staging-crm.sabye-songkran.com/api/user/v1alpha1/users 
+ path_url=/api/user/v1alpha1/users 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'content-type': 'application/json', 'cookie': 'ory_kratos_session=MTYyNDg0NTIwN3xEdi1CQkFFQ180SUFBUkFCRUFBQVJfLUNBQUVHYzNSeWFXNW5EQThBRFhObGMzTnBiMjVmZEc5clpXNEdjM1J5YVc1bkRDSUFJSEF3ZWxOb2ExcG1Oa3BMYTBSTmFqSkhhblptV2pOQ1ZsQklWVUZRVjBKSHzYoB2vzcT8v50F4FXV1PXDiOvJJZi_9TbgbeEg3fWuHQ==', 'Content-Length': '110'} 
+ body={"humanId":"dungx_599@gmail.com","firstName":"dung","lastName":"Nguyen","role":"roles/admin","annotations":{}} 
+ </msg>
+<msg timestamp="20210628 08:53:28.309" level="INFO">POST Response : url=https://staging-crm.sabye-songkran.com/api/user/v1alpha1/users 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 28 Jun 2021 01:53:28 GMT', 'Content-Type': 'application/json', 'Content-Length': '401', 'Connection': 'keep-alive', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'Content-Security-Policy': "block-all-mixed-content; default-src 'none'; base-uri 'none'; img-src 'self' blob: https://storage.googleapis.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://storage.googleapis.com; manifest-src 'self'; media-src 'self' https://storage.googleapis.com; frame-ancestors 'none'", 'Referrer-Policy': 'same-origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-XSS-Protection': '1; mode=block'} 
+ body={
+  "name":  "users/b7b968e3-778b-4ab2-bad8-2e387c93f13a",
+  "createTime":  "2021-06-28T01:53:28.254558967Z",
+  "updateTime":  "2021-06-28T01:53:28.254558967Z",
+  "deleteTime":  null,
+  "createBy":  "users/60644dcf-1aa6-4565-9d04-124e155641c2",
+  "humanId":  "dungx_599@gmail.com",
+  "role":  "roles/admin",
+  "firstName":  "dung",
+  "lastName":  "Nguyen",
+  "annotations":  {},
+  "loginTime":  null
+} 
+ </msg>
+<msg timestamp="20210628 08:53:28.309" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210628 08:53:28.163" endtime="20210628 08:53:28.309"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>200</arg>
+<arg>${response.status_code}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20210628 08:53:28.311" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;class 'int'&gt;</msg>
+<status status="PASS" starttime="20210628 08:53:28.310" endtime="20210628 08:53:28.312"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${id}</var>
+<arg>${response.json()}</arg>
+<arg>$..humanId</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20210628 08:53:28.429" level="INFO">${id} = ['dungx_599@gmail.com']</msg>
+<status status="PASS" starttime="20210628 08:53:28.312" endtime="20210628 08:53:28.429"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>@{name}</var>
+<arg>${response.json()}</arg>
+<arg>$..name</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20210628 08:53:28.489" level="INFO">@{name} = [ users/b7b968e3-778b-4ab2-bad8-2e387c93f13a ]</msg>
+<status status="PASS" starttime="20210628 08:53:28.430" endtime="20210628 08:53:28.490"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${name}</var>
+<arg>@{name}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20210628 08:53:28.491" level="INFO">${name} = users/b7b968e3-778b-4ab2-bad8-2e387c93f13a</msg>
+<status status="PASS" starttime="20210628 08:53:28.490" endtime="20210628 08:53:28.491"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20210628 08:53:28.492" level="INFO">${id} = ['dungx_599@gmail.com']</msg>
+<status status="PASS" starttime="20210628 08:53:28.492" endtime="20210628 08:53:28.492"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20210628 08:53:28.494" level="INFO">${name} = users/b7b968e3-778b-4ab2-bad8-2e387c93f13a</msg>
+<status status="PASS" starttime="20210628 08:53:28.493" endtime="20210628 08:53:28.494"/>
+</kw>
+<status status="PASS" starttime="20210628 08:53:28.162" endtime="20210628 08:53:28.494"/>
+</test>
+<test id="s1-t4" name="4. Edit User">
+<kw name="Catenate" library="BuiltIn">
+<var>${editUri}</var>
+<arg>SEPARATOR=</arg>
+<arg>api/user/v1alpha1/</arg>
+<arg>${name}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20210628 08:53:28.497" level="INFO">${editUri} = api/user/v1alpha1/users/b7b968e3-778b-4ab2-bad8-2e387c93f13a</msg>
+<status status="PASS" starttime="20210628 08:53:28.497" endtime="20210628 08:53:28.497"/>
+</kw>
+<kw name="Patch On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>User</arg>
+<arg>${editUri}</arg>
+<arg>data={"humanId":"${id}","firstName":"dung1212","lastName":"Nguyen","role":"roles/admin","annotations":{}}</arg>
+<doc>Sends a PATCH request on a previously created HTTP Session.</doc>
+<msg timestamp="20210628 08:53:28.590" level="INFO">PATCH Request : url=https://staging-crm.sabye-songkran.com/api/user/v1alpha1/users/b7b968e3-778b-4ab2-bad8-2e387c93f13a 
+ path_url=/api/user/v1alpha1/users/b7b968e3-778b-4ab2-bad8-2e387c93f13a 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'content-type': 'application/json', 'cookie': 'ory_kratos_session=MTYyNDg0NTIwN3xEdi1CQkFFQ180SUFBUkFCRUFBQVJfLUNBQUVHYzNSeWFXNW5EQThBRFhObGMzTnBiMjVmZEc5clpXNEdjM1J5YVc1bkRDSUFJSEF3ZWxOb2ExcG1Oa3BMYTBSTmFqSkhhblptV2pOQ1ZsQklWVUZRVjBKSHzYoB2vzcT8v50F4FXV1PXDiOvJJZi_9TbgbeEg3fWuHQ==', 'Content-Length': '118'} 
+ body={"humanId":"['dungx_599@gmail.com']","firstName":"dung1212","lastName":"Nguyen","role":"roles/admin","annotations":{}} 
+ </msg>
+<msg timestamp="20210628 08:53:28.590" level="INFO">PATCH Response : url=https://staging-crm.sabye-songkran.com/api/user/v1alpha1/users/b7b968e3-778b-4ab2-bad8-2e387c93f13a 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 28 Jun 2021 01:53:28 GMT', 'Content-Type': 'application/json', 'Content-Length': '399', 'Connection': 'keep-alive', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'Content-Security-Policy': "block-all-mixed-content; default-src 'none'; base-uri 'none'; img-src 'self' blob: https://storage.googleapis.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://storage.googleapis.com; manifest-src 'self'; media-src 'self' https://storage.googleapis.com; frame-ancestors 'none'", 'Referrer-Policy': 'same-origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-XSS-Protection': '1; mode=block'} 
+ body={
+  "name":  "users/b7b968e3-778b-4ab2-bad8-2e387c93f13a",
+  "createTime":  "2021-06-28T01:53:28.254559Z",
+  "updateTime":  "2021-06-28T01:53:28.541126Z",
+  "deleteTime":  null,
+  "createBy":  "users/60644dcf-1aa6-4565-9d04-124e155641c2",
+  "humanId":  "dungx_599@gmail.com",
+  "role":  "roles/admin",
+  "firstName":  "dung1212",
+  "lastName":  "Nguyen",
+  "annotations":  {},
+  "loginTime":  null
+} 
+ </msg>
+<msg timestamp="20210628 08:53:28.590" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210628 08:53:28.498" endtime="20210628 08:53:28.590"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>200</arg>
+<arg>${response.status_code}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20210628 08:53:28.592" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;class 'int'&gt;</msg>
+<status status="PASS" starttime="20210628 08:53:28.591" endtime="20210628 08:53:28.593"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${editUri}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20210628 08:53:28.594" level="INFO">${editUri} = api/user/v1alpha1/users/b7b968e3-778b-4ab2-bad8-2e387c93f13a</msg>
+<status status="PASS" starttime="20210628 08:53:28.593" endtime="20210628 08:53:28.594"/>
+</kw>
+<status status="PASS" starttime="20210628 08:53:28.496" endtime="20210628 08:53:28.594"/>
+</test>
+<test id="s1-t5" name="5. Delete User">
+<kw name="Delete On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>User</arg>
+<arg>${editUri}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20210628 08:53:28.688" level="INFO">DELETE Request : url=https://staging-crm.sabye-songkran.com/api/user/v1alpha1/users/b7b968e3-778b-4ab2-bad8-2e387c93f13a 
+ path_url=/api/user/v1alpha1/users/b7b968e3-778b-4ab2-bad8-2e387c93f13a 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'content-type': 'application/json', 'cookie': 'ory_kratos_session=MTYyNDg0NTIwN3xEdi1CQkFFQ180SUFBUkFCRUFBQVJfLUNBQUVHYzNSeWFXNW5EQThBRFhObGMzTnBiMjVmZEc5clpXNEdjM1J5YVc1bkRDSUFJSEF3ZWxOb2ExcG1Oa3BMYTBSTmFqSkhhblptV2pOQ1ZsQklWVUZRVjBKSHzYoB2vzcT8v50F4FXV1PXDiOvJJZi_9TbgbeEg3fWuHQ==', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20210628 08:53:28.688" level="INFO">DELETE Response : url=https://staging-crm.sabye-songkran.com/api/user/v1alpha1/users/b7b968e3-778b-4ab2-bad8-2e387c93f13a 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 28 Jun 2021 01:53:28 GMT', 'Content-Type': 'application/json', 'Content-Length': '424', 'Connection': 'keep-alive', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'Content-Security-Policy': "block-all-mixed-content; default-src 'none'; base-uri 'none'; img-src 'self' blob: https://storage.googleapis.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://storage.googleapis.com; manifest-src 'self'; media-src 'self' https://storage.googleapis.com; frame-ancestors 'none'", 'Referrer-Policy': 'same-origin', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-XSS-Protection': '1; mode=block'} 
+ body={
+  "name":  "users/b7b968e3-778b-4ab2-bad8-2e387c93f13a",
+  "createTime":  "2021-06-28T01:53:28.254559Z",
+  "updateTime":  "2021-06-28T01:53:28.541126Z",
+  "deleteTime":  "2021-06-28T01:53:28.638239Z",
+  "createBy":  "users/60644dcf-1aa6-4565-9d04-124e155641c2",
+  "humanId":  "dungx_599@gmail.com",
+  "role":  "roles/admin",
+  "firstName":  "dung1212",
+  "lastName":  "Nguyen",
+  "annotations":  {},
+  "loginTime":  null
+} 
+ </msg>
+<msg timestamp="20210628 08:53:28.688" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20210628 08:53:28.597" endtime="20210628 08:53:28.688"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>200</arg>
+<arg>${response.status_code}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20210628 08:53:28.691" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;class 'int'&gt;</msg>
+<status status="PASS" starttime="20210628 08:53:28.689" endtime="20210628 08:53:28.691"/>
+</kw>
+<status status="PASS" starttime="20210628 08:53:28.596" endtime="20210628 08:53:28.692"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210628 08:53:28.694" endtime="20210628 08:53:31.887"/>
+</kw>
+<status status="PASS" starttime="20210628 08:53:15.231" endtime="20210628 08:53:31.888"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="Login">Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
